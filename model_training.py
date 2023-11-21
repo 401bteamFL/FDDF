@@ -268,7 +268,6 @@ class TF(object):
         if data_dir:
             test_ds = self._generate_ds(data_dir)
         else:
-            print('QQ')
             test_ds = self._generate_ds(self._test_path, use_cache=True, cache_path='/trainingData/sage/PBCNN/data/60_5_cache/test/')
             print('test ds size: ', len(list(test_ds)))
 
@@ -286,9 +285,7 @@ class TF(object):
             y_1 = model.predict(features)
             y_1 = np.argmax(y_1, axis=-1)
             y_pred_1.append(y_1)
-            y_clean.append(labels.numpy())
-
-        print('f[0][0] clean label: ',y_clean[0][0])
+            y_clean.append(labels.numpy())                   
         
         # count accuracy
         pred_correct_1 = 0
